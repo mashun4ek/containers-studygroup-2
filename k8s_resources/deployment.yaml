@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+  labels:
+    for: studygroup
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      for: studygroup
+  template:
+    metadata:
+      labels:
+        for: studygroup
+    spec:
+      containers:
+      - name: containername
+        image: gcr.io/containers-studygroup/simpleapp:2.0
+        ports:
+          - containerPort: 8888
